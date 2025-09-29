@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "the-silver-screen-07-35731"
+  },
+  "targets": {
+    "the-silver-screen-07-35731": {
+      "hosting": {
+        "default": [
+          "the-silver-screen-7"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
