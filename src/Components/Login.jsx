@@ -1,32 +1,37 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
-import { bg_img } from "../URL/URL";
+import { bg_img, photo_url } from "../URL/URL";
 import { checkValidation } from "../utilis/validation";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utilis/userSlice";
 
 const Login = () => {
-  const [isRegister, setIsRegister] = useState();
+  const [isRegister, setIsRegister] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
   const handleClick = () => {
     const message = checkValidation(
-      email.current.value,
-      password.current.value
+      email.current?.value,
+      password.current?.value
     );
     setErrorMessage(message);
 
     if (message) return;
 
-    if (!isRegister) {
+    if (isRegister) {
       createUserWithEmailAndPassword(
         auth,
         email.current.value,
@@ -34,6 +39,26 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: photo_url,
+          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+              navigate("/browse");
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
+
           console.log(user);
           navigate("/browse");
         })
@@ -43,12 +68,16 @@ const Login = () => {
           setErrorMessage(errorCode + "-" + errorMessage);
         });
     } else {
-      signInWithEmailAndPassword(auth, email, password)
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          navigate("/");
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -72,8 +101,9 @@ const Login = () => {
         <img src={bg_img} alt="bg-netflix" className=" w-screen h-screen  " />
       </div>
       <form
-        onClick={(e) => {
+        onSubmit={(e) => {
           e.preventDefault();
+          handleClick();
         }}
         className="absolute w-[26rem] bg-black/70 my-28 mx-auto left-0 right-0 p-12"
       >
@@ -82,6 +112,7 @@ const Login = () => {
         </h2>
         {isRegister && (
           <input
+            ref={name}
             type="text"
             placeholder="Name"
             className="bg-black/30 border-gray-500 border-2 text-gray-200 outline-white p-3 mt-4 w-xs rounded-sm"
@@ -103,7 +134,7 @@ const Login = () => {
           {errorMessage}
         </p>
         <button
-          onClick={handleClick}
+          type="submit"
           className="bg-red-600 outline-white p-2 my-5 w-xs font-bold text-white rounded-sm"
         >
           {isRegister ? "Sign Up" : "Sign In"}
