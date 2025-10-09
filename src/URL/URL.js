@@ -8,4 +8,7 @@ export const photo_icon =
   "https://i.pinimg.com/564x/5b/50/e7/5b50e75d07c726d36f397f6359098f58.jpg";
 
 export const photo_url =
-  "https://avatars.githubusercontent.com/u/158490535?v=4";
+  "https://i.pinimg.com/736x/92/b4/e7/92b4e7c57de1b5e1e8c5e883fd915450.jpg";
+
+export const fetchMovieAPI =
+  "https://api.themoviedb.org/3/movie/now_playing?&page=1";
