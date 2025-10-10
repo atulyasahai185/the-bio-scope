@@ -12,3 +12,20 @@ export const photo_url =
 
 export const fetchMovieAPI =
   "https://api.themoviedb.org/3/movie/now_playing?&page=1";
+
+export const fetchPopularMovieAPI =
+  "https://api.themoviedb.org/3/movie/popular?S&page=1";
+
+export const fetchUpcomingMovieAPI =
+  "https://api.themoviedb.org/3/movie/upcoming?&page=1";
+
+export const fetchTopRatedMovieAPI =
+  "https://api.themoviedb.org/3/movie/top_rated?&page=1";
+
+export const fetchTvShowsAPI =
+  "https://api.themoviedb.org/3/tv/on_the_air?&page=1";
+
+export const fetchPopularTvShowsAPI =
+  "https://api.themoviedb.org/3/tv/popular?&page=1";
+
+export const img_path = "https://image.tmdb.org/t/p/w200/";
