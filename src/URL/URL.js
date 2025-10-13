@@ -29,3 +29,30 @@ export const fetchPopularTvShowsAPI =
   "https://api.themoviedb.org/3/tv/popular?&page=1";
 
 export const img_path = "https://image.tmdb.org/t/p/w200/";
+
+export const supportedLanguages = [
+  {
+    identifier: "en",
+    Name: "English",
+  },
+
+  {
+    identifier: "hindi",
+    Name: "Hindi",
+  },
+
+  {
+    identifier: "japanese",
+    Name: "Japanese",
+  },
+
+  {
+    identifier: "french",
+    Name: "French",
+  },
+
+  {
+    identifier: "spanish",
+    Name: "Spanish",
+  },
+];

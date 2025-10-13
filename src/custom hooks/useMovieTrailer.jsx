@@ -11,13 +11,11 @@ const useMovieTrailer = (trailerId) => {
       movie_API
     );
     const result = await data.json();
-    console.log(result.results);
 
     const filteredData = result.results.filter(
       (video) => video.type === "Trailer"
     );
     const trailerVd = filteredData.length ? filteredData[0] : result.results[0];
-    console.log(trailerVd);
 
     dispatch(addTrailerClip(trailerVd));
   };
@@ -26,8 +24,6 @@ const useMovieTrailer = (trailerId) => {
     if (!trailerId) return;
     getTrailer();
   }, [trailerId]);
-
-  console.log(trailerId);
 };
 
 export default useMovieTrailer;

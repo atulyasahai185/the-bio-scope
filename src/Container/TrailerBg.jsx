@@ -3,7 +3,6 @@ import useMovieTrailer from "../custom hooks/useMovieTrailer";
 
 const TrailerBg = ({ trailerId }) => {
   const trailerClip = useSelector((store) => store.movies?.trailerClip);
-  console.log(trailerClip);
 
   useMovieTrailer(trailerId);
 

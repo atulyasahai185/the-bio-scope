@@ -11,8 +11,6 @@ const usePlayingMovies = () => {
     const data = await fetch(fetchMovieAPI, movie_API);
     const result = await data.json();
 
-    console.log(result);
-
     dispatch(addPlayingMovies(result.results));
   };
 

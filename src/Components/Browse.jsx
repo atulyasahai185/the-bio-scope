@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import Content from "../Container/content";
 import TrailerVideo from "../Container/trailerVideo";
 import usePlayingMovies from "../custom hooks/usePlayingMovies";
@@ -6,9 +7,12 @@ import usePopularTvShows from "../custom hooks/usePopularTvShows";
 import useTopRatedMovies from "../custom hooks/useTopRatedMovies";
 import useTvShows from "../custom hooks/useTvShows";
 import useUpcomingMovies from "../custom hooks/useUpcomingMovies";
+import GptSearch from "../GPT Components/GptSearch";
 import Header from "./Header";
 
 const Browse = () => {
+  const showSearchComponent = useSelector((store) => store.search.searchClick);
+
   usePlayingMovies();
   usePopularMovies();
   useUpcomingMovies();
@@ -19,8 +23,14 @@ const Browse = () => {
   return (
     <div>
       <Header />
-      <TrailerVideo />
-      <Content />
+      {showSearchComponent ? (
+        <GptSearch />
+      ) : (
+        <>
+          <TrailerVideo />
+          <Content />
+        </>
+      )}
     </div>
   );
 };

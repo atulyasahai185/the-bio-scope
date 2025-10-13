@@ -1,8 +1,6 @@
 import MovieCard from "./MovieCard";
 
 const MovieList = ({ title, movies }) => {
-  console.log(movies);
-
   return (
     <div className=" ">
       <div className="flex flex-wrap overflow-auto px-10 ">
