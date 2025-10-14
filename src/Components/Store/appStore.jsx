@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "../../utilis/userSlice";
 import movieReducer from "../../utilis/movieSlice";
 import tvShowsReducer from "../../utilis/tvShowSlice";
-import gptSearchReducer from "../../GPT Components/Utilis/GptSlice";
+import gptSearchReducer from "../../GenAi Components/Utilis/GenaiSlice";
 import langTypeReducer from "../../utilis/languageSlice";
 
 const appStore = configureStore({

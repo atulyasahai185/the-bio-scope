@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { addUser, removeUser } from "../utilis/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { toggleSearchClick } from "../GPT Components/Utilis/GptSlice";
+import { toggleSearchClick } from "../GenAi Components/Utilis/GenaiSlice";
 import { langType } from "../utilis/languageSlice";
 
 const Header = () => {
