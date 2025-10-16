@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchTvShowsAPI } from "../URL/URL";
 import { movie_API } from "../utilis/fetchAPI";
 import { addTvShows } from "../utilis/tvShowSlice";
