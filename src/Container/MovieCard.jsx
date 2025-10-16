@@ -1,6 +1,8 @@
 import { img_path } from "../URL/URL";
 
 const MovieCard = ({ imagePath }) => {
+  if (!imagePath) return null;
+
   return (
     <div className="w-60">
       <img

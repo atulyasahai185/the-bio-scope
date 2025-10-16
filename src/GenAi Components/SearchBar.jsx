@@ -2,7 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import LanguageType from "../utilis/languageType";
 import { useRef } from "react";
 import { movie_API } from "../utilis/fetchAPI";
-import { addSearchedMovie } from "./Utilis/GenaiSlice";
+import {
+  addSearchedMovie,
+  clearMovieRes,
+  isLoading,
+} from "./Utilis/GenaiSlice";
 import GenAI from "./Utilis/GenAI";
 
 const SearchBar = () => {
@@ -21,6 +25,9 @@ const SearchBar = () => {
   };
 
   const handleOutput = async () => {
+    dispatch(clearMovieRes());
+    dispatch(isLoading(true));
+
     const Query =
       "Act as a Movie Recommendation system and suggest some movies for the query : " +
       searchedText.current.value +
@@ -45,6 +52,8 @@ const SearchBar = () => {
         pictureResult: arrayResult,
       })
     );
+
+    dispatch(isLoading(false));
   };
 
   return (

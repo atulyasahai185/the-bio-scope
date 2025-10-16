@@ -1,5 +1,31 @@
+import { useSelector } from "react-redux";
+import MovieList from "../Container/MovieList";
+import Shimmer from "../Components/ShimmerUI";
+
 const SearchedOutput = () => {
-  return <div>SearchedOutput</div>;
+  const { movieResult, movieName, awaiting } = useSelector(
+    (store) => store.search
+  );
+
+  console.log("loading:", awaiting);
+
+  if (!movieName) return null;
+
+  // if (isLoading) return <Shimmer />;
+
+  return (
+    <div className="text-black bg-black/70 mt-10">
+      <div>
+        {movieName.map((picture, index) => (
+          <MovieList
+            key={movieName}
+            title={picture}
+            movies={movieResult[index]}
+          />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default SearchedOutput;

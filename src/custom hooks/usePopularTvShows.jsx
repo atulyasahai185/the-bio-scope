@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchPopularTvShowsAPI } from "../URL/URL";
 import { movie_API } from "../utilis/fetchAPI";
 import { addPopularTvShows } from "../utilis/tvShowSlice";
@@ -6,6 +6,8 @@ import { useEffect } from "react";
 
 const usePopularTvShows = () => {
   const dispatch = useDispatch();
+
+  const popularTvShows = useSelector((store) => store.tvShows.popularTvShows);
 
   const popularTvShow = async () => {
     const data = await fetch(fetchPopularTvShowsAPI, movie_API);
@@ -15,7 +17,7 @@ const usePopularTvShows = () => {
   };
 
   useEffect(() => {
-    popularTvShow();
+    !popularTvShows && popularTvShow();
   }, []);
 };
 

@@ -7,6 +7,8 @@ import { useEffect } from "react";
 const useTvShows = () => {
   const dispatch = useDispatch();
 
+  const playingTvShows = useSelector((store) => store.tvShows.tvShows);
+
   const tvShows = async () => {
     const data = await fetch(fetchTvShowsAPI, movie_API);
     const result = await data.json();
@@ -15,7 +17,7 @@ const useTvShows = () => {
   };
 
   useEffect(() => {
-    tvShows();
+    !playingTvShows && tvShows();
   }, []);
 };
 

@@ -6,6 +6,7 @@ const GptSlice = createSlice({
     searchClick: false,
     movieResult: null,
     movieName: null,
+    awaiting: false,
   },
   reducers: {
     toggleSearchClick: (state) => {
@@ -17,9 +18,19 @@ const GptSlice = createSlice({
       state.movieResult = pictureResult;
       state.movieName = pictureName;
     },
+
+    clearMovieRes: (state) => {
+      state.movieResult = null;
+      state.movieName = null;
+    },
+
+    isLoading: (state, action) => {
+      state.awaiting = action.payload;
+    },
   },
 });
 
-export const { toggleSearchClick, addSearchedMovie } = GptSlice.actions;
+export const { toggleSearchClick, addSearchedMovie, isLoading, clearMovieRes } =
+  GptSlice.actions;
 
 export default GptSlice.reducer;
