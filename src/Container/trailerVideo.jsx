@@ -12,7 +12,7 @@ const TrailerVideo = () => {
   const { original_title, overview, id } = mainMovies;
 
   return (
-    <div>
+    <div className="-z-20">
       {/* trailerVideo */}
       <VideoTitle title={original_title} overview={overview} />
       <TrailerBg trailerId={id} />
