@@ -1,13 +1,10 @@
 import { useSelector } from "react-redux";
 import MovieList from "../Container/MovieList";
-import Shimmer from "../Components/ShimmerUI";
 
 const SearchedOutput = () => {
   const { movieResult, movieName, awaiting } = useSelector(
     (store) => store.search
   );
-
-  console.log("loading:", awaiting);
 
   if (!movieName) return null;
 

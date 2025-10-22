@@ -4,9 +4,9 @@ const MovieCard = ({ imagePath }) => {
   if (!imagePath) return null;
 
   return (
-    <div className="w-60">
+    <div>
       <img
-        className="rounded-md h-52 w-48"
+        className="rounded-md h-36 w-32 md:h-52 md:w-48"
         src={img_path + imagePath}
         alt="img_cover"
       />

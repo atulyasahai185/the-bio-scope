@@ -20,8 +20,8 @@ const GptSlice = createSlice({
     },
 
     clearMovieRes: (state) => {
-      state.movieResult = null;
-      state.movieName = null;
+      state.movieResult = [];
+      state.movieName = [];
     },
 
     isLoading: (state, action) => {

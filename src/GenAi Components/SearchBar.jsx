@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import LanguageType from "../utilis/languageType";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { movie_API } from "../utilis/fetchAPI";
 import {
   addSearchedMovie,
@@ -13,6 +13,10 @@ const SearchBar = () => {
   const langState = useSelector((store) => store.language.type);
   const searchedText = useRef(null);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    return () => dispatch(clearMovieRes());
+  }, [dispatch]);
 
   const searchedMovie = async (picture) => {
     const data = await fetch(
@@ -59,7 +63,7 @@ const SearchBar = () => {
   return (
     <div className="pt-48">
       <form
-        className="bg-black p-5 flex justify-center drop-shadow-lg  drop-shadow-white/10"
+        className="bg-black/55 p-5 flex justify-center drop-shadow-lg  drop-shadow-white/10 gap-5 md:gap-8"
         onClick={(e) => {
           e.preventDefault();
         }}
@@ -68,11 +72,11 @@ const SearchBar = () => {
           ref={searchedText}
           type="text"
           placeholder={LanguageType[langState].searchPlaceHolder}
-          className="bg-white w-xl p-2 outline-0"
+          className="bg-white w-44 md:w-xl p-2 outline-0 text-sm md:text-lg font-medium rounded-md"
         />
         <button
           type="submit"
-          className="bg-indigo-500 p-2 w-32"
+          className="bg-gradient-to-r from-red-700 via-red-300  p-1 text-sm md:text-lg md:p-2 w-16 md:w-32 font-bold rounded-sm cursor-pointer"
           onClick={handleOutput}
         >
           {LanguageType[langState].searchText}

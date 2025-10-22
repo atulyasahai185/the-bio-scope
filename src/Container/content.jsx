@@ -8,7 +8,7 @@ const Content = () => {
   return (
     movies.playingMovies && (
       <div className="bg-black/95">
-        <div className="-mt-36 relative z-10">
+        <div className="-mt-15 md:-mt-44 relative z-10">
           <MovieList
             title={"Now Playing on Bio Scope"}
             movies={movies.playingMovies}

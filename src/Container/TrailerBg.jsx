@@ -7,9 +7,9 @@ const TrailerBg = ({ trailerId }) => {
   useMovieTrailer(trailerId);
 
   return (
-    <div>
+    <div className="relative w-full pt-[56%] md:pt-[45%]">
       <iframe
-        className="w-screen aspect-video "
+        className="absolute top-0 left-0 w-full h-full object-cover "
         src={
           "https://www.youtube.com/embed/" +
           trailerClip?.key +
