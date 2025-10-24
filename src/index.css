@@ -4,4 +4,8 @@
 @theme {
   --font-heading: "Ubuntu", sans-serif;
   --font-headers: "Jost", sans-serif;
+  --font-image: "Frijole", system-ui;
+  --font-language: "Zalando Sans Expanded", sans-serif;
+  --font-info: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu,
+    sans-serif;
 }

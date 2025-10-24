@@ -9,6 +9,7 @@ import useTvShows from "../custom hooks/useTvShows";
 import useUpcomingMovies from "../custom hooks/useUpcomingMovies";
 import GptSearch from "../GenAi Components/genaiSearch";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const Browse = () => {
   const showSearchComponent = useSelector((store) => store.search.searchClick);
@@ -31,6 +32,7 @@ const Browse = () => {
           <Content />
         </>
       )}
+      <Footer />
     </div>
   );
 };

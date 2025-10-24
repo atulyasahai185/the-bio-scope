@@ -3,7 +3,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-const MovieList = ({ title, movies }) => {
+const MovieList = ({ title, movies, hide_Title = false }) => {
+  const movies_result = movies?.filter((movie) => movie.poster_path);
+
   var settings = {
     dots: false,
     infinite: true,
@@ -40,11 +42,13 @@ const MovieList = ({ title, movies }) => {
 
   return (
     <div className="px-15 my-6 md:px-10">
-      <h1 className=" py-5 px-1 font-medium text-lg md:text-3xl font-heading text-white  ">
-        {title}
-      </h1>
+      {!hide_Title && (
+        <h1 className=" py-5 px-1 font-medium text-lg md:text-3xl font-heading text-white  ">
+          {title}
+        </h1>
+      )}
       <Slider {...settings}>
-        {movies?.map((movie) => (
+        {movies_result?.map((movie) => (
           <div key={movie.id} className=" px-2 ">
             <MovieCard imagePath={movie.poster_path} />
           </div>

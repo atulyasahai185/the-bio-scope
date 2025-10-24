@@ -28,7 +28,10 @@ const Header = () => {
 
   const handleFunction = () => {
     signOut(auth)
-      .then(() => {})
+      .then(() => {
+        dispatch(removeUser());
+        navigate("/");
+      })
       .catch((error) => {
         navigate("/error");
       });
@@ -49,7 +52,7 @@ const Header = () => {
         navigate("/browse");
       } else {
         dispatch(removeUser());
-        navigate("/login");
+        navigate("/");
       }
     });
     return () => unMount();
@@ -74,7 +77,7 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute px-6 md:px-20 py-2 bg-gradient-to-tr from-black/60 w-screen z-20 flex items-center justify-between bg-black/35 md:bg-gray-500/25 sm:bg-white/15">
+    <div className="absolute px-6 md:px-20 py-2 w-screen z-20 flex items-center justify-between bg-gradient-to-b from-black/75">
       <div className="w-32 md:w-44 my-5 md:my-2">
         <img
           src={logo}
