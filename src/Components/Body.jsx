@@ -29,15 +29,19 @@ const Body = () => {
 
   return (
     <>
+      {/* Backgorund Image */}
       <div className="bg-gradient-to-b from-black/35 from-100% h-screen">
         <div className="fixed w-screen h-screen -z-10">
           <img src={bg_img} alt="" className="h-screen w-screen" />
         </div>
 
+        {/* Header Section */}
         <div className="flex items-center justify-around bg-gradient-to-b from-black px-6 md:px-2 py-2 z-20 w-screen">
           <div className="w-32 md:w-44 my-5 md:my-2">
             <img src={logo} alt="logo" className="w-28 h-12 md:w-48 md:h-20" />
           </div>
+
+          {/* For Mobile Devices */}
           <div className="md:hidden relative border-2 border-white/75 rounded-md w-14 h-8 text-center px-3 py-0.5 ">
             <button onClick={aboutLangIcon}>
               <FontAwesomeIcon className="text-white" icon={faLanguage} />
@@ -55,6 +59,8 @@ const Body = () => {
               </select>
             )}
           </div>
+
+          {/* For Large Screen Devices */}
           <div className="flex justify-between gap-6">
             <div className="hidden md:block">
               <div className="border-2 h-9 w-12 md:w-36 px-3 border-white/75 rounded-md gap-1 flex items-center">
@@ -81,6 +87,7 @@ const Body = () => {
           </div>
         </div>
 
+        {/* Language Change as per choice */}
         <div className="flex flex-col items-center mt-40">
           <div>
             <h1 className="text-3xl md:text-6xl w-72 md:w-2xl ml-20 md:ml-0 font-[900] font-info text-white text-center">
@@ -114,6 +121,7 @@ const Body = () => {
         </div>
       </div>
 
+      {/* Footer */}
       <Footer />
     </>
   );

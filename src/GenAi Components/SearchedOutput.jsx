@@ -6,8 +6,6 @@ const SearchedOutput = () => {
 
   if (!movieName) return null;
 
-  console.log("moviename:", movieResult);
-
   // if (isLoading) return <Shimmer />;
 
   return (

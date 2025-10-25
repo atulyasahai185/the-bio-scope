@@ -49,10 +49,10 @@ const Header = () => {
             photoURL: photoURL,
           })
         );
-        navigate("/browse");
+        if (window.location.pathname !== "/browse") navigate("/browse");
       } else {
         dispatch(removeUser());
-        navigate("/");
+        if (window.location.pathname !== "/login") navigate("/");
       }
     });
     return () => unMount();

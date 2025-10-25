@@ -76,7 +76,7 @@ const SearchBar = () => {
         />
         <button
           type="submit"
-          className="bg-gradient-to-r from-red-700 via-red-300  p-1 text-sm md:text-lg md:p-2 w-16 md:w-32 font-bold rounded-sm cursor-pointer"
+          className="bg-red-800  p-1 text-sm md:text-lg md:p-2 w-16 md:w-32 font-bold rounded-sm cursor-pointer"
           onClick={handleOutput}
         >
           {LanguageType[langState].searchText}
